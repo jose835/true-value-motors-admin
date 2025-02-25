@@ -1,4 +1,4 @@
-import { JSX, useEffect, useState } from 'react';
+import { JSX, useState } from 'react';
 import Header from './Header';
 import Aside from './Aside';
 import { Toaster } from 'react-hot-toast';
@@ -22,7 +22,7 @@ export default function Container({
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
-    
+
     return (
         <div id='app' className='flex flex-col h-screen overflow-hidden'>
             <Toaster />

@@ -1,12 +1,6 @@
 import { useState, useEffect, useMemo, useRef, Dispatch, SetStateAction } from "react";
 import { Car, Home } from "../icons/icons";
-import { useLocation } from "react-router-dom";
 import MenuItem from "../components/MenuItem";
-
-interface SubMenu {
-    name: string;
-    url: string;
-}
 
 interface MenuItemType {
     id: number;
@@ -22,18 +16,9 @@ interface Props {
     setSettingsMenu: Dispatch<SetStateAction<boolean>>;
 }
 
-function Aside({ setIsSidebarOpen, isSidebarOpen, setSettingsMenu, settingsMenu }: Props) {
+function Aside({ setIsSidebarOpen, isSidebarOpen }: Props) {
     const [activeMenuItem, setActiveMenuItem] = useState<number | null>(null);
-    const [activeSubItem, setActiveSubItem] = useState<string | null>(null);
-
     const sidebarRef = useRef<HTMLDivElement>(null);
-
-    const { pathname } = useLocation();
-
-    function handleSetting() {
-        setSettingsMenu(true)
-        setIsSidebarOpen(false)
-    }
 
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {

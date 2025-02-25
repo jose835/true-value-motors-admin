@@ -24,7 +24,7 @@ export default function Login() {
     const handleLogin = async (e: FormEvent) => {
         e.preventDefault();
 
-        const { data, error } = await supabase.auth.signInWithPassword({
+        const { error } = await supabase.auth.signInWithPassword({
             email: credentials.email,
             password: credentials.password,
         });
@@ -37,7 +37,6 @@ export default function Login() {
         }
     };
 
-    // Renombramos `user` para evitar conflictos
     const { user: authUser } = useAuth();
 
     if (authUser) return <Navigate to="/home" replace />;
